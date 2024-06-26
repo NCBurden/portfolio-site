@@ -42,7 +42,7 @@ export const skills = [
 
 export const testimonials = [
     {
-        quote: "He Does Excellent Work!",
+        quote: "He is quite capable as a leader of his team but also functions very well as an independent worker who needs very little fine-grained direction one he gets going.",
         image: require("./resources/Nordstrom_Steve_web3.jpg"),
         name: "Steve Nordstrom, Ph.D",
         company: "Lipscomb University"
