@@ -13,12 +13,12 @@ export default function Contact() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        fetch("cbportfolioform.workers.dev/submit", {
-            method: "POST",
+        result = fetch("/api/greetings", {
+            method: "Get",
             headers: {"Content-Type": "application/x-www-form-urlencoded"},
             body: encode({"form-name": "contact", name, email, message}),
         })
-        .then(()=> alert("Message Sent!"))
+        .then(()=> alert(`Message Sent! ${result}`))
         .catch((error) => alert(error));
     }
 
@@ -62,7 +62,7 @@ export default function Contact() {
                 </div>
                 <form
                 name="contact"
-                data-static-form-name = "contact"
+                onSubmit={handleSubmit}
                 className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
                     <h2 className="text-white sm:text-4xl text-3xl mb-1 font-medium title-font">
                         Contact Me
