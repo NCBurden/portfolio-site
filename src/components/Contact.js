@@ -15,8 +15,8 @@ export default function Contact() {
         e.preventDefault();
         let result = fetch("/api/greetings", {
             method: "Get",
-            headers: {"Content-Type": "application/x-www-form-urlencoded"},
-            body: encode({"form-name": "contact", name, email, message}),
+            // headers: {"Content-Type": "application/x-www-form-urlencoded"},
+            // body: encode({"form-name": "contact", name, email, message}),
         })
         .then(()=> alert(`Message Sent! ${result}`))
         .catch((error) => alert(error));
