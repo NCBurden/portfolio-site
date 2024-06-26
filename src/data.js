@@ -46,17 +46,17 @@ export const testimonials = [
         image: require("./resources/Nordstrom_Steve_web3.jpg"),
         name: "Steve Nordstrom, Ph.D",
         company: "Lipscomb University"
-    },
-    {
-        quote: "WOW what a GREAT worker",
-        image: "",
-        name: "Donald",
-        company: "Executive Branch"
-    },
-    {
-        quote: "He Does Excellent Work!",
-        image: "",
-        name: "",
-        company: ""
     }
+    // {
+    //     quote: "WOW what a GREAT worker",
+    //     image: "",
+    //     name: "Donald",
+    //     company: "Executive Branch"
+    // },
+    // {
+    //     quote: "He Does Excellent Work!",
+    //     image: "",
+    //     name: "",
+    //     company: ""
+    // }
 ]
