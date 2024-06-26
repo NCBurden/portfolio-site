@@ -13,7 +13,7 @@ export default function Contact() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        result = fetch("/api/greetings", {
+        let result = fetch("/api/greetings", {
             method: "Get",
             headers: {"Content-Type": "application/x-www-form-urlencoded"},
             body: encode({"form-name": "contact", name, email, message}),
