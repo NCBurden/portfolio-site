@@ -7,10 +7,21 @@ export default function Contact() {
     const [message, setMessage] = React.useState("");
     const [isLoading, setLoading] = React.useState(false);
 
-    function encode(data) {
-        return Object.keys(data).map(
-            (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-        ).join("&");
+    const handleNameChange = (event) => {
+        setName(event.target.value);
+    }
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value);
+    }
+    const handleMessageChange = (event) => {
+        setMessage(event.target.value);
+    }
+
+    function resetForm() {
+        setName("");
+        setEmail("");
+        setMessage("");
+        setLoading(false);
     }
 
     function handleSubmit(e) {
@@ -33,11 +44,11 @@ export default function Contact() {
         .then(response => response.text())
         .then((response) => {
             alert(`${response}`);
-            setLoading(false);
+            resetForm();
         })
         .catch((error) => {
             alert(error); 
-            setLoading(false);
+            resetForm();
         });
     }
 
@@ -100,8 +111,9 @@ export default function Contact() {
                         id="name"
                         name="name"
                         required="true"
+                        value={name}
                         className="w-full bg-gray-800 rounded border border-gray-700 focus:border-inigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leding-8 transition-colors duration-200 ease-in-out"
-                        onChange={(e)=> setName(e.target.value)}
+                        onChange={handleNameChange}
                         />
                     </div>
                     <div className="relative mb-4">
@@ -113,8 +125,9 @@ export default function Contact() {
                         id="email"
                         name="email"
                         required="true"
+                        value={email}
                         className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={handleEmailChange}
                         />
                     </div>
                     <div className="raltive mb-4">
@@ -125,8 +138,9 @@ export default function Contact() {
                         id="message"
                         name="message"
                         required="true"
+                        value={message}
                         className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-                        onChange={(e) => setMessage(e.target.value)}
+                        onChange={handleMessageChange}
                         />
                     </div>
                     <button type="submit"
