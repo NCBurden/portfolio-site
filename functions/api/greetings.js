@@ -4,9 +4,9 @@ export const onRequestGet = () => {
   }
   
   // POST requests to /filename with a JSON-encoded body would return "Hello, <name>!"
-  export const onRequestPost = async ({ request, context }) => {
+  export const onRequestPost = async ({ request, env }) => {
     const { name, email, message } = await request.json();
-    const url = context.env.FORM_SUBMISSION_URL;
+    const url = env.FORM_SUBMISSION_URL;
     let response = "";
 
     const data = new URLSearchParams();
