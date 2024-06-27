@@ -13,12 +13,12 @@ export default function Contact() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        let result = fetch("/api/greetings", {
+        fetch("/api/greetings", {
             method: "Get",
             // headers: {"Content-Type": "application/x-www-form-urlencoded"},
             // body: encode({"form-name": "contact", name, email, message}),
         })
-        .then(()=> alert(`Message Sent! ${result}`))
+        .then(res=> alert(`Message Sent! ${res.data}`))
         .catch((error) => alert(error));
     }
 
