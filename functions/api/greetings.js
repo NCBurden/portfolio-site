@@ -14,7 +14,7 @@ export const onRequestGet = () => {
     data.append("Email", email);
     data.append("Message", message);
 
-    fetch(url, {
+    return fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -25,7 +25,7 @@ export const onRequestGet = () => {
         console.log(`In First then! ${response}`);
         response.text()})
     .then((response) => {
-        console.log('In 2nd then!');
+        console.log('In 2nd then!')
         if (response === "Success"){
             resp = `${name}, your message has been successfully submitted!`;
         }
@@ -36,7 +36,6 @@ export const onRequestGet = () => {
     })
     .catch((error) => {
         resp = `Sorry, there has been an error :(`;
-        console.log(`There was an error ${resp}`);
         return new Response(resp);
     })
   }
