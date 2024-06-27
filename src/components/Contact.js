@@ -1,9 +1,11 @@
 import React from "react";
+import LoadingOverlay from 'react-loading-overlay-ts';
 
 export default function Contact() {
     const [name, setName] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [message, setMessage] = React.useState("");
+    const [isLoading, setLoading] = React.useState(false);
 
     function encode(data) {
         return Object.keys(data).map(
@@ -13,6 +15,7 @@ export default function Contact() {
 
     function handleSubmit(e) {
         e.preventDefault();
+        setLoading(true);
         let formData = {
             name: name,
             email: email,
@@ -29,9 +32,15 @@ export default function Contact() {
         .then(response => response.text())
         .then((response) => {alert(`${response}`)})
         .catch((error) => alert(error));
+        setLoading(false);
     }
 
     return (
+        <LoadingOverlay
+                 active = {isLoading}
+                 spinner
+                 text = ""
+        >
         <section id="contact" className="relative">
             <div className="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
                 <div className="lg:w-2/3 md:w-1/2 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
@@ -122,5 +131,6 @@ export default function Contact() {
                 </form>
             </div>
         </section>
+        </LoadingOverlay>
     );
 }
