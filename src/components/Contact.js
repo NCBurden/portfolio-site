@@ -47,7 +47,8 @@ export default function Contact() {
             resetForm();
         })
         .catch((error) => {
-            alert(error); 
+            console.log(error);
+            alert("There was an error"); 
             resetForm();
         });
     }
