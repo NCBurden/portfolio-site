@@ -27,7 +27,7 @@ export default function Contact() {
             body: JSON.stringify(formData),
         })
         .then(response => response.text())
-        .then((response) => {alert(`Message Sent! ${response}`)})
+        .then((response) => {alert(`${response}`)})
         .catch((error) => alert(error));
     }
 
