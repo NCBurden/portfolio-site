@@ -14,7 +14,7 @@ export default function Contact() {
     }
 
     function handleSubmit(e) {
-        e.preventDefault();
+        // e.preventDefault();
         setLoading(true);
         let formData = {
             name: name,
