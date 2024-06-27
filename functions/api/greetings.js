@@ -30,7 +30,7 @@ export const onRequestGet = () => {
             response = `Sorry, there has been an error :(`;
         }
     })
-    .error((error) => {
+    .catch((error) => {
         response = `Sorry, there has been an error :(`;
     })
     return new Response(response);
