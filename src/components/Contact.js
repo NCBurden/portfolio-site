@@ -13,10 +13,18 @@ export default function Contact() {
 
     function handleSubmit(e) {
         e.preventDefault();
+        let formData = {
+            name: name,
+            email: email,
+            message: message
+        }
+
         fetch("/api/greetings", {
-            method: "Get",
-            // headers: {"Content-Type": "application/x-www-form-urlencoded"},
-            // body: encode({"form-name": "contact", name, email, message}),
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
         })
         .then(response => response.text())
         .then((response) => {alert(`Message Sent! ${response}`)})

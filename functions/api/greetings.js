@@ -5,6 +5,6 @@ export const onRequestGet = () => {
   
   // POST requests to /filename with a JSON-encoded body would return "Hello, <name>!"
   export const onRequestPost = async ({ request }) => {
-    const { name } = await request.json()
-    return new Response(`Hello, ${name}!`)
+    const { name, email, message } = await request.json()
+    return new Response(`Hello, ${name}! Thank you for letting me contact you at ${email}. \n\n ${message}`)
   }
