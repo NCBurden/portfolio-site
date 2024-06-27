@@ -32,11 +32,11 @@ export const onRequestGet = () => {
         else{
             resp = `Sorry, there has been an error :(`;
         }
+        return new Response(resp);
     })
     .catch((error) => {
-        console.log("There was an error");
         resp = `Sorry, there has been an error :(`;
+        console.log(`There was an error ${resp}`);
+        return new Response(resp);
     })
-    console.log(`Response: ${resp}`)
-    return new Response(resp);
   }
