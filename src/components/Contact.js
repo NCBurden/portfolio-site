@@ -18,8 +18,8 @@ export default function Contact() {
             // headers: {"Content-Type": "application/x-www-form-urlencoded"},
             // body: encode({"form-name": "contact", name, email, message}),
         })
-        .then(res => alert(res))
-        .then(data => alert(`Message Sent! ${data}`))
+        .then(response => response.text())
+        .then((response) => {alert(`Message Sent! ${response}`)})
         .catch((error) => alert(error));
     }
 
