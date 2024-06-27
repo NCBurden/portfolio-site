@@ -7,7 +7,7 @@ export const onRequestGet = () => {
   export const onRequestPost = async ({ request, env }) => {
     const { name, email, message } = await request.json();
     const url = env.FORM_SUBMISSION_URL;
-    let response = "";
+    let response = "Original";
 
     const data = new URLSearchParams();
     data.append("Name", name);
@@ -31,8 +31,8 @@ export const onRequestGet = () => {
         }
     })
     .catch((error) => {
-        console.log(error);
         response = `Sorry, there has been an error :(`;
     })
+    console.log(`Response: ${response}`)
     return new Response(response);
   }
