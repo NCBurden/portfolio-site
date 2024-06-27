@@ -13,12 +13,13 @@ export default function Contact() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        fetch("cbportfolioform.workers.dev/submit", {
-            method: "POST",
-            headers: {"Content-Type": "application/x-www-form-urlencoded"},
-            body: encode({"form-name": "contact", name, email, message}),
+        fetch("/api/greetings", {
+            method: "Get",
+            // headers: {"Content-Type": "application/x-www-form-urlencoded"},
+            // body: encode({"form-name": "contact", name, email, message}),
         })
-        .then(()=> alert("Message Sent!"))
+        .then(response => response.text())
+        .then((response) => {alert(`Message Sent! ${response}`)})
         .catch((error) => alert(error));
     }
 
