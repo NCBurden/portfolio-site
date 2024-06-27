@@ -4,9 +4,9 @@ export const onRequestGet = () => {
   }
   
   // POST requests to /filename with a JSON-encoded body would return "Hello, <name>!"
-  export const onRequestPost = async ({ request }) => {
+  export const onRequestPost = async ({ request, context }) => {
     const { name, email, message } = await request.json();
-    const url = getURL();
+    const url = context.env.FORM_SUBMISSION_URL;
     let response = "";
 
     const data = new URLSearchParams();
@@ -35,7 +35,3 @@ export const onRequestGet = () => {
     })
     return new Response(response);
   }
-
-export function getURL(context){
-    return context.env.FORM_SUBMISSION_URL
-}
