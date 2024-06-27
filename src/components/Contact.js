@@ -14,8 +14,9 @@ export default function Contact() {
     }
 
     function handleSubmit(e) {
-        // e.preventDefault();
+        e.preventDefault();
         setLoading(true);
+
         let formData = {
             name: name,
             email: email,
@@ -30,17 +31,18 @@ export default function Contact() {
             body: JSON.stringify(formData),
         })
         .then(response => response.text())
-        .then((response) => {alert(`${response}`)})
-        .catch((error) => alert(error));
-        setLoading(false);
+        .then((response) => {
+            alert(`${response}`);
+            setLoading(false);
+        })
+        .catch((error) => {
+            alert(error); 
+            setLoading(false);
+        });
     }
 
     return (
-        <LoadingOverlay
-                 active = {isLoading}
-                 spinner
-                 text = ""
-        >
+        <LoadingOverlay active = {isLoading} >
         <section id="contact" className="relative">
             <div className="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
                 <div className="lg:w-2/3 md:w-1/2 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
@@ -97,6 +99,7 @@ export default function Contact() {
                         type="text"
                         id="name"
                         name="name"
+                        required="true"
                         className="w-full bg-gray-800 rounded border border-gray-700 focus:border-inigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leding-8 transition-colors duration-200 ease-in-out"
                         onChange={(e)=> setName(e.target.value)}
                         />
@@ -109,6 +112,7 @@ export default function Contact() {
                         type="email"
                         id="email"
                         name="email"
+                        required="true"
                         className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                         onChange={(e) => setEmail(e.target.value)}
                         />
@@ -120,6 +124,7 @@ export default function Contact() {
                         <textarea
                         id="message"
                         name="message"
+                        required="true"
                         className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
                         onChange={(e) => setMessage(e.target.value)}
                         />
