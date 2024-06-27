@@ -31,6 +31,7 @@ export const onRequestGet = () => {
         }
     })
     .catch((error) => {
+        console.log(error);
         response = `Sorry, there has been an error :(`;
     })
     return new Response(response);
