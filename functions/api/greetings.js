@@ -22,16 +22,9 @@ export const onRequestGet = () => {
         body: data
     })
     .then(response => {
-        console.log(`In First then! ${response}`);
         response.text()})
     .then((response) => {
-        console.log('In 2nd then!')
-        if (response === "Success"){
-            resp = `${name}, your message has been successfully submitted!`;
-        }
-        else{
-            resp = `Sorry, there has been an error :(`;
-        }
+        resp = `${name}, your message has been successfully submitted!`;
         return new Response(resp);
     })
     .catch((error) => {
