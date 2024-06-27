@@ -7,7 +7,7 @@ export const onRequestGet = () => {
   export const onRequestPost = async ({ request, env }) => {
     const { name, email, message } = await request.json();
     const url = env.FORM_SUBMISSION_URL;
-    let response = `Original`;
+    let resp = `Original`;
 
     const data = new URLSearchParams();
     data.append("Name", name);
@@ -21,18 +21,22 @@ export const onRequestGet = () => {
         },
         body: data
     })
-    .then(response => response.text())
+    .then(response => {
+        console.log(`In First then! ${response}`);
+        response.text()})
     .then((response) => {
+        console.log('In 2nd then!');
         if (response === "Success"){
-            response = `${name}, your message has been successfully submitted!`;
+            resp = `${name}, your message has been successfully submitted!`;
         }
         else{
-            response = `Sorry, there has been an error :(`;
+            resp = `Sorry, there has been an error :(`;
         }
     })
     .catch((error) => {
-        response = `Sorry, there has been an error :(`;
+        console.log("There was an error");
+        resp = `Sorry, there has been an error :(`;
     })
-    console.log(`Response: ${response} \n URL: ${url}`)
-    return new Response(response);
+    console.log(`Response: ${resp}`)
+    return new Response(resp);
   }
