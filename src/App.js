@@ -10,7 +10,7 @@ import Testimonials from "./components/Testimonials";
 
 function App() {
   return (
-    <main className='text-gray-400 bg-gray-900 body-font'>
+    <main className='text-neutral-400 bg-neutral-900 body-font'>
       <Navbar/>
       <About/>
       <Projects/>
