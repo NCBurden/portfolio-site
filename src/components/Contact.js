@@ -34,7 +34,7 @@ export default function Contact() {
             message: message
         }
 
-        fetch("/api/greetings", {
+        fetch("/api/submitForm", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ export default function Contact() {
         <LoadingOverlay active = {isLoading} >
         <section id="contact" className="relative">
             <div className="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
-                <div className="lg:w-2/3 md:w-1/2 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+                <div className="lg:w-2/3 md:w-1/2 bg-neutral-900 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
                     <iframe
                         width="100%"
                         height="100%"
@@ -69,7 +69,7 @@ export default function Contact() {
                         style={{filter: "opacity(0.8)"}}
                         src="https://www.google.com/maps/embed/v1/place?q=Nashville,+TN,+USA&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
                     />
-                    <div className="bg-gray-900 relative flex flex-wrap py-6 rounded shadow-md">
+                    <div className="bg-neutral-900 relative flex flex-wrap py-6 rounded shadow-md">
                         <div className="lg:w-1/2 px-6">
                             <h2 className="title-font font-semibold text-white tracking-widest text-xs">
                                 Located Near
@@ -82,7 +82,7 @@ export default function Contact() {
                             <h2 className="title-font font-semibold text-white tracking-widest text-xs">
                                 EMAIL
                             </h2>
-                            <a className="text-indigo-400 leading-relaxed">
+                            <a className="text-green-400 leading-relaxed">
                                 email@email.com
                             </a>
                             {/* <h2 className="title-font font-semibold text-white tracking-widest text-xs mt-4">
@@ -104,7 +104,7 @@ export default function Contact() {
                         I'll try to reply as soon as possible!
                     </p>
                     <div className="relative mb-4">
-                        <label htmlFor="name" className="leading-7 text-sm text-gray-400">
+                        <label htmlFor="name" className="leading-7 text-sm text-neutral-400">
                             Name
                         </label>
                         <input
@@ -113,12 +113,12 @@ export default function Contact() {
                         name="name"
                         required="true"
                         value={name}
-                        className="w-full bg-gray-800 rounded border border-gray-700 focus:border-inigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leding-8 transition-colors duration-200 ease-in-out"
+                        className="w-full bg-neutral-800 rounded border border-neutral-700 focus:border-green-600 focus:ring-2 focus:ring-green-900 text-base outline-none text-neutral-100 py-1 px-3 leding-8 transition-colors duration-200 ease-in-out"
                         onChange={handleNameChange}
                         />
                     </div>
                     <div className="relative mb-4">
-                        <label htmlFor="email" className="leading-7 text-sm text-gray-400">
+                        <label htmlFor="email" className="leading-7 text-sm text-neutral-400">
                             Email
                         </label>
                         <input
@@ -127,12 +127,12 @@ export default function Contact() {
                         name="email"
                         required="true"
                         value={email}
-                        className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                        className="w-full bg-neutral-800 rounded border border-neutral-700 focus:border-green-600 focus:ring-2 focus:ring-green-900 text-base outline-none text-neutral-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                         onChange={handleEmailChange}
                         />
                     </div>
                     <div className="raltive mb-4">
-                        <label htmlFor="message" className="leading-7 text-sm text-gray-400">
+                        <label htmlFor="message" className="leading-7 text-sm text-neutral-400">
                             Message
                         </label>
                         <textarea
@@ -140,12 +140,12 @@ export default function Contact() {
                         name="message"
                         required="true"
                         value={message}
-                        className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                        className="w-full bg-neutral-800 rounded border border-neutral-700 focus:border-green-600 focus:ring-2 focus:ring-green-900 h-32 text-base outline-none text-neutral-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
                         onChange={handleMessageChange}
                         />
                     </div>
                     <button type="submit"
-                    className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                    className="text-white bg-green-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-700 rounded text-lg">
                         Submit
                     </button>
                 </form>
